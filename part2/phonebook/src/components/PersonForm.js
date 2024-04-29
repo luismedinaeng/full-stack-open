@@ -1,12 +1,14 @@
-const PersonForm = ({handleNameChange, handlePhoneChange, onSubmit}) => {
+const PersonForm = ({newName, newPhone, handleNameChange, handlePhoneChange, onSubmit}) => {
     return (
         <div>
             <form id="phonebookForm" onSubmit={onSubmit}>
                 <div>
-                    name: <input onChange={handleNameChange}/>
+                    name:
+                    <input value={newName} onChange={({ target }) => handleNameChange(target.value)}/>
                 </div>
                 <div>
-                    number: <input type="tel" onChange={handlePhoneChange}/>
+                    number:
+                    <input value={newPhone} type="tel" onChange={({ target }) => handlePhoneChange(target.value)}/>
                 </div>
                 <div>
                     <button type="submit">add</button>
